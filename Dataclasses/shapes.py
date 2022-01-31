@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 
+@dataclass
 class Circle:
     radius: float
     center_position: tuple
@@ -12,6 +13,7 @@ class Circle:
         return 2 * 3.14 * self.radius
 
 
+@dataclass
 class Rectangle:
     length: float
     width: float
