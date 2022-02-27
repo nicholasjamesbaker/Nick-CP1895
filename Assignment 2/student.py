@@ -1,19 +1,19 @@
 class Student:
-    def __init__(self, student_id: int, name: str, address: str, program: str, current_courses: list, completed_courses: dict):
-        self.__student_id = student_id
+    def __init__(self, id: int, name: str, address: str, program: str):
+        self.__id = id
         self.__name = name
         self.__address = address
         self.__program = program
-        self.__current_courses = current_courses
-        self.__completed_courses = completed_courses
+        self.__current_courses = []
+        self.__completed_courses = {}
 
     @property
     def name(self):
         return self.__name
 
     @property
-    def student_id(self):
-        return self.__student_id
+    def id(self):
+        return self.__id
 
     @property
     def address(self):
@@ -32,22 +32,18 @@ class Student:
             average = sum(filtered_vals) / len(filtered_vals)
             return average
 
-    def add_course(self):
-        new_course = input("Name of course to be added: ")
+    def add_course(self, new_course):
         self.__current_courses.append(new_course)
         print(new_course, "has been added to current courses")
 
-    def drop_course(self):
-        delete_course = input("Name of course to be deleted: ")
+    def drop_course(self, delete_course):
         if delete_course not in self.__current_courses:
             raise ValueError("Course name not in list")
         else:
             self.__current_courses.remove(delete_course)
             print("Updated course list is:", self.__current_courses)
 
-    def course_completed(self):
-        course_id = input("Enter name of course: ")
-        marks_obtained = int(input("Enter the mark: "))
+    def course_completed(self, course_id, marks_obtained):
         if course_id not in self.__current_courses:
             raise ValueError("Course name not in list")
         else:

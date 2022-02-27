@@ -10,6 +10,10 @@ class Employee:
         return self.__employee_id
 
     @property
+    def salary(self):
+        return self.__salary
+
+    @property
     def annual_salary(self):
         return self.__salary * 12
 
@@ -17,9 +21,9 @@ class Employee:
     def name(self):
         return f"{self.__first_name} {self.__last_name}"
 
-    def raise_salary(self):
-        percent = float(input("Raise salary by specified percent: "))
-        decimal = percent/100
+    def raise_salary(self, raise_percent):
+        #percent = float(input("Raise salary by specified percent: "))
+        decimal = raise_percent/100
         added_amount = decimal * self.__salary
         new_salary = added_amount + self.__salary
         self.__salary = new_salary

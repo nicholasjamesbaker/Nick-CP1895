@@ -5,7 +5,7 @@ from rectangle import Rectangle
 from date import Date
 from student import Student
 from employee import Employee
-from bankaccount import BankAccount
+from bank import BankAccount
 from classtransaction import Transaction
 
 circle1 = Circle(4, "blue")

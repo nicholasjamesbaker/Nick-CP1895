@@ -1,4 +1,4 @@
-from bankaccount import BankAccount
+from bank import BankAccount
 
 
 class Transaction:

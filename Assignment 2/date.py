@@ -1,14 +1,22 @@
 class Date:
-    def __init__(self, day: int, month: int, year: int):
-        self.__day = day
-        self.__month = month
+    def __init__(self, year: int, month: int, day: int):
         self.__year = year
-        assert isinstance(day, int), "Day must be an int"
-        assert 0 < day < 32, "Must be valid day"
-        assert isinstance(month, int), "Month must be an int"
-        assert 0 < month < 13, "Must be valid month"
-        assert isinstance(year, int), "Year must be an int"
-        assert 1900 < year < 2099, "Must be valid year"
+        self.__month = month
+        self.__day = day
+        if not isinstance(year, int):
+            raise TypeError("Year must be int")
+        if not isinstance(month, int):
+            raise TypeError("Month must be int")
+        if not isinstance(day, int):
+            raise TypeError("Day must be int")
+        if isinstance(day, bool):
+            raise TypeError("No booleans allowed")
+        if not 0 < year < 2099:
+            raise ValueError("Must be a valid year")
+        if not 0 < month < 13:
+            raise ValueError("Must be valid month")
+        if not 0 < day < 32:
+            raise ValueError("Must be valid day")
 
     def __str__(self):
         return f"{str(self.__day).zfill(2)}/{str(self.__month).zfill(2)}/{self.__year}"
