@@ -9,10 +9,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/photos")
-def photos():
+@app.route("/recipes")
+def recipes():
     images = ["image1.jpg"]
-    return render_template("photos.html", images=images)
+    return render_template("recipes.html", images=images)
 
 
 
