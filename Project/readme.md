@@ -22,5 +22,9 @@ Once this is done, you copy your local URL into the browser!
 
 That is it!
 
-### Notes
+Or simply... Use the AWS Link:
+
+# AWS Link
+
+http://34.201.12.42/
 
