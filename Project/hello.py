@@ -1,22 +1,20 @@
-import datetime
-
-from flask import Flask, render_template, request
+import os
+from flask import Flask, render_template, request, redirect, url_for, flash
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+
+UPLOAD_FOLDER = 'static/images'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
+
 @app.route("/recipes")
 def recipes():
-    images = ["image1.jpg"]
-    return render_template("recipes.html", images=images)
-
-
-
-"""@app.route("/<string:name>")
-def hello(name):
-    return render_template("index.html", name=request.args.get("name", "world"))
-"""
+    return render_template("recipes.html")
