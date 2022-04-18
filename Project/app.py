@@ -1,8 +1,3 @@
-import imghdr
-import os
-import sys
-from waitress import serve
-
 from flask import Flask, render_template, g, redirect, request, session, url_for
 from werkzeug.utils import secure_filename
 
@@ -23,6 +18,5 @@ def recipes():
     return render_template("recipes.html")
 
 
-if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port=80)
-    serve(app, host='0.0.0.0', port=80)
+if __name__ == "__main__":
+    app.run()
