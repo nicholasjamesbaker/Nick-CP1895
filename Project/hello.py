@@ -1,13 +1,15 @@
+import imghdr
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash
+import sys
+
+from flask import Flask, render_template, g, redirect, request, session, url_for
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'static/images'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['UPLOAD_PATH'] = 'static/images'
+app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 
 
 @app.route("/")
